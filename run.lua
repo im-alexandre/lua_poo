@@ -1,6 +1,6 @@
 Hero = require('hero')
 
-knight = Hero:new(50)
+knight = Hero:new({life = 50})
 wizard = Hero:new()
 
 knight:damage(10)
