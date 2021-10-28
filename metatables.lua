@@ -9,5 +9,8 @@ object = {
 
 setmetatable(object, {__index = fallback})
 
-print(object.life)
-print(object.mana)
+object.mana = 20
+
+print("Vida do objeto: " .. object.life)
+print("Mana do objeto: " .. object.mana)
+print("Mana da metatable: " .. fallback.mana)
