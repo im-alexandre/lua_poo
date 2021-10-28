@@ -1,32 +1,39 @@
 local Hero = {}
-local private = {}
+local private = {
+    life = 100
+}
 
-function Hero:new()
+local function set_life(self, value)
+    private[self].life = value
+end
+
+function Hero:new(life)
     local instance = {}
-
     setmetatable(instance, {__index = self})
 
-    private[instance] = {
-        life = 100
-    }
+    private[instance] = {}
+    setmetatable(
+        private[instance], {__index = private}
+        )
+
+    if life then
+        private[instance].life = life
+    end
 
     return instance
 end
 
 
 function Hero:damage(value)
-    private[self].life = private[self].life - value
+    set_life(self, private[self].life - value)
+end
+
+function Hero:heal(value)
+    set_life(self, private[self].life + value)
 end
 
 function Hero:get_life()
     return private[self].life
-end
-
-function Hero:heal(value)
-    private[self].life = private[self].life + value
-    if private[self].life > 100 then
-        private[self].life = 100
-    end
 end
 
 return Hero
