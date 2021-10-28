@@ -1,13 +1,13 @@
 Hero = {}
 
-Hero.new = function()
+function Hero:new()
     instance = {
         life = 100,
         mana = 50,
     }
 
-    instance.damage = function(value)
-        instance.life = instance.life - value
+   function instance:damage(value)
+        self.life = self.life - value
     end
 
     return instance
