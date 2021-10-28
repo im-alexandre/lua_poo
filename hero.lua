@@ -7,6 +7,13 @@ function Hero:damage(value)
     self.life = self.life - value
 end
 
+function Hero:heal(value)
+    self.life = self.life + value
+    if self.life > 100 then
+        self.life = 100
+    end
+end
+
 function Hero:new(attributes)
     instance = {}
 
