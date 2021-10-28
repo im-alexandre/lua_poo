@@ -1,7 +1,9 @@
 local Hero = {}
 
 function Hero:new(attributes)
-    local instance = {}
+    local instance = {
+        mana = 50
+    }
 
     local life = 100
 
@@ -9,7 +11,7 @@ function Hero:new(attributes)
         return life
     end
 
-    function instance:set_life(value)
+    local function set_life(value)
         if value > 100 then
             life = 100
         elseif value < 0 then
@@ -17,6 +19,11 @@ function Hero:new(attributes)
         else
             life = value
         end
+    end
+
+    function instance:increase_all(value)
+        life = life + value
+        self.mana = self.mana + value
     end
 
     if attributes then
@@ -30,7 +37,7 @@ function Hero:new(attributes)
     end
 
    function instance:damage(value)
-        self:set_life(life - value)
+        set_life(life - value)
     end
 
    function instance:heal(value)
