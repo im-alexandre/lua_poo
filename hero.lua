@@ -8,7 +8,9 @@ function Hero:damage(value)
 end
 
 function Hero:new()
-    return Hero
+    instance = {}
+    setmetatable(instance, {__index = self})
+    return instance
 end
 
 return Hero
