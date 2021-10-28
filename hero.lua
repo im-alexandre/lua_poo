@@ -7,8 +7,9 @@ function Hero:damage(value)
     self.life = self.life - value
 end
 
-function Hero:new()
+function Hero:new(life)
     instance = {}
+    instance.life = life
     setmetatable(instance, {__index = self})
     return instance
 end
