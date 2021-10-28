@@ -1,9 +1,9 @@
 Hero = require('hero')
 
-knight = Hero:new({life = 50})
+knight = Hero:new()
 wizard = Hero:new()
 
-knight:damage(10)
+--knight.life = nil
+knight.life = false
 
-print("Vida do cavalheiro: " .. knight.life)
-print("Vida do mago: " .. wizard.life)
+print("Vida do cavalheiro: " .. tostring(knight.life))
