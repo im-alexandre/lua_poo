@@ -1,7 +1,7 @@
-hero = require('hero')
+Hero = require('hero')
 
-knight = hero
-wizard = hero
+knight = Hero:new()
+wizard = Hero:new()
 
 knight:damage(10)
 

@@ -1,10 +1,14 @@
-hero = {
+Hero = {
     life = 100,
     mana = 50,
 }
 
-function hero:damage(value)
+function Hero:damage(value)
     self.life = self.life - value
 end
 
-return hero
+function Hero:new()
+    return Hero
+end
+
+return Hero
