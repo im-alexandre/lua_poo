@@ -1,8 +1,8 @@
 hero = {
     life = 100,
     mana = 50,
-    damage = function(hero, value)
-        hero.life = hero.life - value
+    damage = function(self, value)
+        self.life = self.life - value
     end
 }
 
