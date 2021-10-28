@@ -1,28 +1,32 @@
-Hero = {
-    life = 100,
-    mana = 50,
-}
+local Hero = {}
+local private = {}
+
+function Hero:new()
+    local instance = {}
+
+    setmetatable(instance, {__index = self})
+
+    private[instance] = {
+        life = 100
+    }
+
+    return instance
+end
+
 
 function Hero:damage(value)
-    self.life = self.life - value
+    private[self].life = private[self].life - value
+end
+
+function Hero:get_life()
+    return private[self].life
 end
 
 function Hero:heal(value)
-    self.life = self.life + value
-    if self.life > 100 then
-        self.life = 100
+    private[self].life = private[self].life + value
+    if private[self].life > 100 then
+        private[self].life = 100
     end
-end
-
-function Hero:new(attributes)
-    instance = {}
-
-    if attributes then
-        instance.life = attributes.life
-    end
-
-    setmetatable(instance, {__index = self})
-    return instance
 end
 
 return Hero
