@@ -6,7 +6,11 @@ setmetatable(Knight, {__index = Hero})
 function Knight:new(attributes)
     local instance = Hero:new()
     instance._damage = instance.damage
+
     setmetatable(instance, {__index = self})
+
+    instance.strength = 75
+
     return instance
 end
 
