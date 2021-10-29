@@ -5,8 +5,10 @@ local Wizard = {}
 function Wizard:new(attributes)
     local instance = Hero:new(attributes)
 
+    instance._damage = instance.damage
+
     function instance:damage(value)
-        self:damage(value * 1.5)
+        self:_damage(value * 1.5)
     end
 
 
