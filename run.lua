@@ -1,15 +1,11 @@
-Hero = require('hero')
+local Wizard = require('wizard')
+local Knight = require('knight')
 
-knight = Hero:new(50)
-wizard = Hero:new()
+local knight = Knight:new()
+local wizard = Wizard:new()
 
 knight:damage(10)
-knight:heal(5)
+wizard:damage(10)
 
-print(knight:get_life())
-
-knight.life = -10
-
-print(knight:get_life())
-
-print(wizard:get_life())
+print("knight: " .. knight:get_life())
+print("wizard: " .. wizard:get_life())
