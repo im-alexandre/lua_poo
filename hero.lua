@@ -4,6 +4,10 @@ local private = {
     mana = 50
 }
 
+local function set_life(self, value)
+    private[self].life = value
+end
+
 function Hero:new(attributes)
     local instance = {}
     setmetatable(instance, {__index = self})
@@ -27,20 +31,17 @@ function Hero:new(attributes)
 end
 
 function Hero:damage(value)
-    self:set_life(private[self].life - value)
+    --self:set_life(private[self].life - value)
+    set_life(self, private[self].life - value)
 end
 
 function Hero:heal(value)
-    self:set_life(private[self].life + value)
+    --self:set_life(private[self].life + value)
+    set_life(self, private[self].life + value)
 end
 
 function Hero:get_life()
     return private[self].life
 end
-
-function Hero:set_life(value)
-    private[self].life = value
-end
-
 
 return Hero
