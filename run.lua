@@ -26,3 +26,5 @@ wizard:damage(10)
 --print("----------\n")
 
 print(Hero.area(5, 10))
+
+print(Hero.circle_area(3))

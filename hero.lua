@@ -44,9 +44,5 @@ function Hero:get_life()
     return private[self].life
 end
 
--- Método estático
-function Hero.area(altura, largura)
-    return altura * largura
-end
 
 return Hero
